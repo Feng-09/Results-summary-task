@@ -1,0 +1,277 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Hanken;
+}
+
+@font-face {
+  font-family: Hanken;
+  src: url(HankenGrotesk-VariableFont_wght.ttf);
+}
+
+/* colors */
+$red: hsl(0, 100%, 67%);
+$yellow: hsl(39, 100%, 56%);
+$green: hsl(166, 100%, 37%);
+$blue: hsl(234, 85%, 45%);
+$bgblue: hsl(252, 100%, 67%);
+$bluebg: hsl(241, 81%, 54%);
+$circleblue: hsla(256, 72%, 46%, 1);
+$bluecircle: hsla(241, 72%, 46%, 0);
+$white: hsl(0, 0%, 100%);
+$textblue: hsl(221, 100%, 96%);
+$lavender: hsl(241, 100%, 89%);
+$darkblue: hsl(224, 30%, 27%);
+
+@mixin lavender {
+  font-family: Hanken;
+  color: $lavender;
+}
+
+@mixin white {
+  font-family: Hanken;
+  color: $white;
+}
+
+@mixin bg($color) {
+  background-color: $color;
+}
+
+@mixin it($color, $width) {
+  color: $color;
+  width: $width;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-around;
+}
+
+.Result {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 18rem;
+  align-items: center;
+  text-align: center;
+  background-image: linear-gradient($bgblue, $bluebg);
+  border-radius: 0 0 30px 30px;
+  padding: 1rem 0 1rem 0;
+}
+
+.Result p {
+  max-width: 70%;
+  @include lavender();
+}
+
+.Result div {
+  border: 1px solid hsla(241, 72%, 46%, 0);
+  border-radius: 99999px;
+  background-image: linear-gradient($circleblue, $bluecircle);
+  height: 7rem;
+  width: 7rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+h1 {
+  font-family: Hanken;
+  font-weight: 800;
+  font-size: 3rem;
+  color: $white;
+  margin-top: 0.8rem;
+}
+
+div p {
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  @include white();
+  font-weight: 700;
+}
+
+.top {
+  font-weight: 700;
+}
+
+.bottom {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.Summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 25rem;
+  padding: 1.2rem 1.2rem 0.4rem 1.2rem;
+}
+
+.Summary p,
+h3,
+h4 {
+  font-weight: 700;
+}
+
+.Summary p {
+  color: $lavender;
+}
+
+h3,
+span {
+  color: $darkblue;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 16rem;
+}
+
+.categories1,
+.categories2,
+.categories3,
+.categories4 {
+  display: flex;
+  justify-content: space-between;
+  height: 3.3rem;
+  align-items: center;
+  border-radius: 1rem;
+  padding: 0 1rem;
+}
+
+.it {
+  display: flex;
+  justify-content: space-between;
+  width: 6rem;
+}
+
+.reaction {
+  @include it($red, 4rem);
+}
+
+.memory {
+  @include it($yellow, 4rem);
+}
+
+.verbal {
+  @include it($green, 4rem);
+}
+
+.visual {
+  @include it($blue, 4rem);
+}
+
+.categories1 {
+  @include bg(hsla(0, 100%, 67%, 0.23));
+}
+
+.categories2 {
+  @include bg(hsla(39, 100%, 56%, 0.2));
+}
+
+.categories3 {
+  @include bg(hsla(166, 100%, 37%, 0.2));
+}
+
+.categories4 {
+  @include bg(hsla(234, 85%, 45%, 0.2));
+}
+
+.continue {
+  text-decoration: none;
+  color: $white;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.button {
+  height: 3.3rem;
+  background-color: $darkblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 18rem;
+}
+
+.button:hover {
+  background-color: $circleblue;
+  cursor: pointer;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+// tablet and desktop styling
+@media screen and (min-width: 540px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main {
+    display: flex;
+    width: 40rem;
+    height: 27rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  article {
+    width: 50%;
+  }
+
+  .Result {
+    height: 100%;
+    border-radius: 2rem;
+  }
+
+  .Summary {
+    padding: 2rem;
+    border-radius: 0 2rem 2rem 0;
+    box-shadow: 10px 10px 20px hsla(0, 0%, 50%, 0.7);
+    height: 27rem;
+  }
+
+  .Result div {
+    height: 10rem;
+    width: 10rem;
+  }
+
+  h1 {
+    font-size: 4rem;
+    margin-top: 1.5rem;
+  }
+
+  .shift {
+    position: relative;
+    bottom: 1rem;
+  }
+
+  .top {
+    font-size: 1.2rem;
+  }
+
+  .bottom {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+}
